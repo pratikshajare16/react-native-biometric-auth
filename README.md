@@ -1,79 +1,186 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# React Native Biometric Authentication
 
-# Getting Started
+A mobile application built with React Native demonstrating secure biometric fingerprint authentication for user login and device-level access control.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## Features
 
-## Step 1: Start the Metro Server
+- Fingerprint Authentication
+- Biometric Device Authentication
+- Secure Login Flow
+- Authentication Error Handling
+- Device Compatibility Detection
+- Fallback Authentication Handling
+- Cross-Platform Mobile Development
+- Secure Access Control
+- Clean UI Implementation
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+---
 
-To start Metro, run the following command from the _root_ of your React Native project:
+## Tech Stack
+
+**Mobile Development**
+- React Native
+- JavaScript
+
+**Authentication**
+- React Native Biometrics / Expo Local Authentication
+
+**Development Tools**
+- Android Studio
+- VS Code
+- Emulator / Physical Android Device
+
+---
+
+## Project Structure
 
 ```bash
-# using npm
-npm start
-
-# OR using Yarn
-yarn start
+project-root/
+│
+├── src/
+│   ├── screens/
+│   │   └── LoginScreen.js
+│   │
+│   ├── components/
+│   │   └── FingerprintButton.js
+│   │
+│   ├── services/
+│   │   └── biometricAuth.js
+│   │
+│   └── navigation/
+│       └── AppNavigator.js
+│
+├── assets/
+├── App.js
+├── package.json
+└── README.md
 ```
 
-## Step 2: Start your Application
+---
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+## Functionality
 
-### For Android
+This application demonstrates biometric authentication using fingerprint recognition available on supported mobile devices.
+
+Workflow:
+
+1. User opens application
+2. App checks biometric hardware availability
+3. App verifies enrolled fingerprint data
+4. Fingerprint authentication prompt appears
+5. User authenticates using fingerprint
+6. Successful authentication grants access
+7. Failed authentication shows error handling
+
+---
+
+## Installation
+
+Clone repository:
 
 ```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
+git clone https://github.com/yourusername/react-native-biometric-auth.git
 ```
 
-### For iOS
+Install dependencies:
 
 ```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
+npm install
 ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+Install biometric authentication package:
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+```bash
+npm install react-native-biometrics
+```
 
-## Step 3: Modifying your App
+For Expo:
 
-Now that you have successfully run the app, let's modify it.
+```bash
+npm install expo-local-authentication
+```
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+Run Android:
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+```bash
+npx react-native run-android
+```
 
-## Congratulations! :tada:
+Run iOS:
 
-You've successfully run and modified your React Native App. :partying_face:
+```bash
+npx react-native run-ios
+```
 
-### Now what?
+---
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+## Example Authentication Logic
 
-# Troubleshooting
+```javascript
+import ReactNativeBiometrics from 'react-native-biometrics';
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+const rnBiometrics = new ReactNativeBiometrics();
 
-# Learn More
+rnBiometrics.simplePrompt({
+  promptMessage: 'Authenticate with Fingerprint'
+})
+.then((resultObject) => {
+  const { success } = resultObject;
 
-To learn more about React Native, take a look at the following resources:
+  if (success) {
+    console.log('Authentication successful');
+  } else {
+    console.log('Authentication cancelled');
+  }
+});
+```
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+---
+
+## Security Features
+
+- Biometric Fingerprint Authentication
+- Secure Device Authentication
+- Unauthorized Access Prevention
+- Hardware Capability Detection
+- Enrolled Biometric Verification
+
+---
+
+## Testing
+
+Tested on:
+
+- Android Emulator
+- Physical Android Device
+- Fingerprint Enabled Devices
+
+---
+
+## Learning Outcomes
+
+This project demonstrates practical mobile development skills including:
+
+- React Native Application Development
+- Biometric Authentication Integration
+- Mobile Security Implementation
+- Native Device Feature Integration
+- Authentication Workflow Design
+- Error Handling in Mobile Apps
+
+---
+
+## Future Improvements
+
+- Face ID Authentication
+- PIN Fallback Authentication
+- Backend Token Authentication Integration
+- Session Management
+- User Profile Management
+- Secure Credential Storage
+
+---
+
+## Author
+
+**Pratiksha Jare**
